@@ -6,9 +6,10 @@
   <meta name="description" content="John Louie Mendoza - WordPress Developer Portfolio" />
   <title>Louie Mendoza | WordPress Developer</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
-  <header class="dark-header">
+  <header class="dark-header" data-aos="fade-down">
     <div class="container">
       <img src="Louie Mendoza.webp" alt="John Louie Mendoza" class="profile-pic" />
       <h1>John Louie Mendoza</h1>
@@ -21,10 +22,10 @@
     </div>
   </header>
 
-  <section class="about dark-section">
+  <section class="about dark-section" data-aos="fade-up">
     <div class="container">
       <h2>About Me</h2>
-      <p>I’m Louie, a WordPress developer with experience in building responsive, SEO-friendly, and custom-themed websites using Elementor. I’m passionate about clean code and performance-driven design.</p>
+      <p>I’m Louie, a WordPress developer with experience in building responsive, SEO-friendly, and custom-themed websites using Elementor. I’m passionate about clean code, optimization, and performance-driven design.</p>
       <ul class="skills">
         <li>HTML</li><li>CSS</li><li>JavaScript</li><li>PHP</li><li>WordPress</li>
         <li>MSSQL</li><li>C#</li><li>Software/Hardware/Network Troubleshooting</li>
@@ -32,7 +33,7 @@
     </div>
   </section>
 
-  <section class="projects dark-section">
+  <section class="projects dark-section" data-aos="fade-up">
     <div class="container">
       <h2>Projects</h2>
       <div class="project">
@@ -58,7 +59,7 @@
     </div>
   </section>
 
-  <section class="contact dark-section">
+  <section class="contact dark-section" data-aos="fade-up">
     <div class="container">
       <h2>Contact</h2>
       <p>If you’d like to work together, feel free to reach out!</p>
@@ -76,5 +77,14 @@
       <p>&copy; 2025 John Louie Mendoza. All rights reserved.</p>
     </div>
   </footer>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true,
+      delay: 100,
+      duration: 1000
+    });
+  </script>
 </body>
 </html>
