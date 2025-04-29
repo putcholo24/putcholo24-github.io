@@ -1,15 +1,58 @@
-/* Dark Theme CSS for Louie's Developer Portfolio */
+/* Dark Theme CSS for Louie's Developer Portfolio with Animations and Background Effects */
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
 body {
   margin: 0;
   font-family: 'Fira Code', 'Courier New', monospace;
   background-color: #0d1117;
   color: #c9d1d9;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle at center, #58a6ff 0%, transparent 70%);
+  opacity: 0.15;
+  animation: move1 10s infinite alternate;
+  z-index: 0;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle at center, #238636 0%, transparent 70%);
+  opacity: 0.15;
+  animation: move2 12s infinite alternate;
+  z-index: 0;
+}
+
+@keyframes move1 {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
+
+@keyframes move2 {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-50px, -50px); }
 }
 
 .container {
   max-width: 1000px;
   margin: auto;
   padding: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 header.dark-header {
@@ -31,10 +74,12 @@ header.dark-header {
 h1, h2, h3 {
   color: #58a6ff;
   font-weight: 600;
+  transition: all 0.5s ease;
 }
 
 p {
   line-height: 1.6;
+  transition: all 0.5s ease;
 }
 
 .social-links a {
@@ -42,6 +87,11 @@ p {
   text-decoration: none;
   color: #58a6ff;
   font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #79c0ff;
 }
 
 .skills {
@@ -58,18 +108,29 @@ p {
   border-radius: 5px;
   font-size: 0.9rem;
   border: 1px solid #30363d;
+  transition: background-color 0.3s ease;
+}
+
+.skills li:hover {
+  background-color: #30363d;
 }
 
 .projects .project {
   margin-bottom: 2rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid #30363d;
+  transition: all 0.5s ease;
 }
 
 .projects .project a {
   color: #79c0ff;
   font-weight: bold;
   text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.projects .project a:hover {
+  color: #58a6ff;
 }
 
 .contact form {
@@ -85,6 +146,12 @@ p {
   border-radius: 5px;
   background-color: #0d1117;
   color: #c9d1d9;
+  transition: border-color 0.3s ease;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+  border-color: #58a6ff;
 }
 
 .contact button {
@@ -121,4 +188,15 @@ footer.dark-footer {
     width: 100px;
     height: 100px;
   }
+}
+
+[data-aos] {
+  opacity: 0;
+  transition-property: opacity, transform;
+  transition-duration: 1s;
+}
+
+[data-aos].aos-animate {
+  opacity: 1;
+  transform: none;
 }
