@@ -11,8 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const roles = [
     "WordPress Developer",
     "Frontend Developer",
-    "Tech Support Specialist",
-    "Fullstack Developer"
+    "Fullstack WordPress Developer"
   ];
   let i = 0, j = 0, isDeleting = false;
   const el = document.getElementById("typewriter");
