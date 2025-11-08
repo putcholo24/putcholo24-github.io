@@ -66,9 +66,9 @@ header.dark-header {
 
 /* ==== Profile ==== */
 .profile-pic {
-  width: 300px;
-  height: 300px;
-  object-fit: cover;
+  width: 400px;
+  height: 400px;
+  object-fit: fill;
   border-radius: 50%;
   border: 3px solid #58a6ff;
   margin-bottom: 1rem;
@@ -98,7 +98,7 @@ p {
 #typewriter {
   color: #58a6ff;
   font-size: 1.1rem;
-  border-right: 2px solid #58a6ff;
+  /* border-right: 2px solid #58a6ff; */
   white-space: nowrap;
   overflow: hidden;
 }
