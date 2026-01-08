@@ -1,4 +1,4 @@
-/* Dark Theme CSS for Louie's Developer Portfolio with Enhanced Animations and Background Effects */
+/* Dark Theme CSS for Louie's Developer Portfolio */
 
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 
@@ -23,6 +23,7 @@ body::after {
   filter: blur(120px);
   opacity: 0.25;
   z-index: 0;
+  pointer-events: none; /* Prevents background from blocking clicks */
 }
 
 body::before {
@@ -56,19 +57,14 @@ header.dark-header {
   text-align: center;
   padding: 3rem 1rem;
   border-bottom: 1px solid #30363d;
-  animation: fadeIn 1.2s ease forwards;
-  opacity: 0;
-}
-
-@keyframes fadeIn {
-  to { opacity: 1; transform: none; }
+  /* Removed manual fadeIn to let AOS handle it */
 }
 
 /* ==== Profile ==== */
 .profile-pic {
-  width: 400px;
-  height: 400px;
-  object-fit: fill;
+  width: 250px; /* Adjusted from 400px for better layout balance */
+  height: 250px;
+  object-fit: cover; /* Changed 'fill' to 'cover' to prevent stretching */
   border-radius: 50%;
   border: 3px solid #58a6ff;
   margin-bottom: 1rem;
@@ -86,21 +82,17 @@ h1, h2, h3 {
   color: #58a6ff;
   font-weight: 600;
   text-shadow: 0 0 8px rgba(88,166,255,0.4);
-  transition: all 0.5s ease;
 }
 
 p {
   line-height: 1.6;
-  transition: all 0.5s ease;
 }
 
 /* ==== Typewriter ==== */
 #typewriter {
   color: #58a6ff;
   font-size: 1.1rem;
-  /* border-right: 2px solid #58a6ff; */
-  white-space: nowrap;
-  overflow: hidden;
+  min-height: 1.5em;
 }
 
 /* ==== Social Links ==== */
@@ -132,12 +124,13 @@ p {
   border-radius: 5px;
   font-size: 0.9rem;
   border: 1px solid #30363d;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .skills li:hover {
   background-color: #30363d;
   transform: translateY(-3px);
+  border-color: #58a6ff;
 }
 
 /* ==== Projects ==== */
@@ -153,17 +146,13 @@ p {
 .projects .project:hover {
   transform: translateY(-6px);
   box-shadow: 0 10px 20px rgba(56,139,253,0.1);
+  border-color: #58a6ff;
 }
 
 .projects .project a {
   color: #79c0ff;
   font-weight: bold;
   text-decoration: underline;
-  transition: color 0.3s ease;
-}
-
-.projects .project a:hover {
-  color: #58a6ff;
 }
 
 /* ==== Contact ==== */
@@ -180,15 +169,16 @@ p {
   border-radius: 5px;
   background-color: #0d1117;
   color: #c9d1d9;
-  transition: border-color 0.3s ease;
+  font-family: inherit;
 }
 
 .contact input:focus,
 .contact textarea:focus {
+  outline: none;
   border-color: #58a6ff;
+  box-shadow: 0 0 5px rgba(88,166,255,0.3);
 }
 
-/* Animated Send Button */
 .contact button {
   background-color: #238636;
   color: #fff;
@@ -197,26 +187,26 @@ p {
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
   transition: background-color 0.3s ease;
-}
-
-.contact button::after {
-  content: "";
-  position: absolute;
-  top: 0; left: -100%;
-  width: 100%; height: 100%;
-  background: linear-gradient(120deg, rgba(88,166,255,0.3), transparent);
-  transition: all 0.5s;
-}
-
-.contact button:hover::after {
-  left: 100%;
 }
 
 .contact button:hover {
   background-color: #2ea043;
+}
+
+/* ==== Custom AOS Zoom Override ==== */
+/* This makes the zoom effect feel "springy" and smooth */
+[data-aos="zoom-in"] {
+  transform: scale(0.8);
+  opacity: 0;
+  transition-property: transform, opacity;
+}
+
+[data-aos="zoom-in"].aos-animate {
+  transform: scale(1);
+  opacity: 1;
 }
 
 /* ==== Footer ==== */
@@ -229,30 +219,23 @@ footer.dark-footer {
   border-top: 1px solid #30363d;
 }
 
-/* ==== AOS Animations ==== */
-[data-aos] {
-  opacity: 0;
-  transition-property: opacity, transform;
-  transition-duration: 1s;
-}
-
-[data-aos].aos-animate {
-  opacity: 1;
-  transform: none;
-}
-
 /* ==== Responsive ==== */
 @media (max-width: 600px) {
-  .skills {
-    flex-direction: column;
-    align-items: center;
+  .container {
+    padding: 1rem;
+  }
+  
+  .profile-pic {
+    width: 150px;
+    height: 150px;
   }
 
-  .profile-pic {
-    width: 120px;
-    height: 120px;
+  .skills {
+    justify-content: center;
   }
 }
+
+/* Cursor Glow Logic */
 #cursor-glow {
   position: fixed;
   width: 300px;
@@ -261,10 +244,6 @@ footer.dark-footer {
   background: radial-gradient(circle, rgba(88,166,255,0.1), transparent 70%);
   pointer-events: none;
   transform: translate(-50%, -50%);
-  transition: background 0.3s ease;
   z-index: 0;
   mix-blend-mode: screen;
 }
-
-
-
