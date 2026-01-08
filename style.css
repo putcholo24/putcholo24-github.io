@@ -58,13 +58,13 @@ body::after {
 }
 
 /* ==== Solid Sections (NO glass) ==== */
-.dark-header,
+/* .dark-header,
 .dark-section,
 .dark-footer {
   background-color: #161b22;
   border: 1px solid #30363d;
   border-radius: 12px;
-}
+} */
 
 /* ==== Header ==== */
 header.dark-header {
@@ -242,3 +242,4 @@ footer.dark-footer {
     height: 120px;
   }
 }
+
