@@ -1,4 +1,4 @@
-/* Dark Theme CSS for Louie's Developer Portfolio with Glassmorphism */
+/* Dark Theme CSS for Louie's Developer Portfolio */
 
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 
@@ -23,6 +23,7 @@ body::after {
   filter: blur(120px);
   opacity: 0.25;
   z-index: 0;
+  pointer-events: none;
 }
 
 body::before {
@@ -56,17 +57,13 @@ body::after {
   z-index: 1;
 }
 
-/* ==== Glassmorphism Sections ==== */
+/* ==== Solid Sections (NO glass) ==== */
 .dark-header,
 .dark-section,
-.dark-footer,
-.project {
-  background: rgba(22, 27, 34, 0.6);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+.dark-footer {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 12px;
 }
 
 /* ==== Header ==== */
@@ -148,12 +145,11 @@ p {
 }
 
 .skills li {
-  background: rgba(33, 38, 45, 0.6);
-  backdrop-filter: blur(8px);
+  background-color: #21262d;
   padding: 0.5rem 1rem;
   border-radius: 8px;
   font-size: 0.9rem;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid #30363d;
   transition: transform 0.3s ease;
 }
 
@@ -161,16 +157,30 @@ p {
   transform: translateY(-3px);
 }
 
-/* ==== Projects ==== */
+/* ==== Projects (Glassmorphism ONLY here) ==== */
 .projects .project {
   margin-bottom: 2rem;
   padding: 1.5rem;
+
+  background: rgba(22, 27, 34, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(255,255,255,0.02);
+
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .projects .project:hover {
   transform: translateY(-6px);
-  box-shadow: 0 15px 30px rgba(56,139,253,0.15);
+  box-shadow:
+    0 15px 30px rgba(56, 139, 253, 0.2),
+    inset 0 0 0 1px rgba(255,255,255,0.05);
 }
 
 .projects .project a {
@@ -190,12 +200,12 @@ p {
 .contact textarea {
   padding: 0.75rem;
   border-radius: 8px;
-  background: rgba(13, 17, 23, 0.6);
+  background-color: #0d1117;
   color: #c9d1d9;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid #30363d;
 }
 
-/* Button */
+/* ==== Button ==== */
 .contact button {
   background-color: #238636;
   color: #fff;
